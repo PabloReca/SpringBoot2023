@@ -22,6 +22,7 @@ public class MemeModel {
     long id;
 
     String category;
+    @Column (length = 500)
     String url;
     String description;
     String author;
