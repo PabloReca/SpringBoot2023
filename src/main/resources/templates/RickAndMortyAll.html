@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RickAndMorty</title>
+</head>
+<body>
+<h1>Lista de personajes de Rick and Morty</h1>
+<h3 th:text="${creator}"></h3>
+
+<div th:each="character: ${characters}">
+     <h4 th:text="${character.name}"></h4>
+     <img th:src="${character.image}" alt="personaje">
+     </div>
+</body>
+</html>
