@@ -29,7 +29,6 @@ public class rickController {
 
     // http://127.0.0.1/
     // http://localhost/
-    // http://angel.com/
     @GetMapping("/")
     public String saluda() {
         return "Bienvenid@ a mi api rest de rickAndMorty";

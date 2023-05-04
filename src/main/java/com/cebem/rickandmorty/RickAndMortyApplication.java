@@ -14,7 +14,6 @@ public class RickAndMortyApplication {
     }
 
 
-
     public static void main(String[] args) {
         SpringApplication.run(RickAndMortyApplication.class, args);
     }
