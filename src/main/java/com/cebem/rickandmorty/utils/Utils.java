@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class utils {
+public class Utils {
     public static boolean isPalindrome(String word){
         String inverseWord = new StringBuilder(word)
                 .reverse()

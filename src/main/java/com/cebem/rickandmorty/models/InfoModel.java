@@ -1,5 +1,5 @@
 package com.cebem.rickandmorty.models;
 
-public class infoModel {
+public class InfoModel {
     public int count;
 }

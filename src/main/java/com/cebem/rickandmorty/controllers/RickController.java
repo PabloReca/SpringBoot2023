@@ -3,7 +3,7 @@ package com.cebem.rickandmorty.controllers;
 import com.cebem.rickandmorty.models.CharacterModel;
 import com.cebem.rickandmorty.models.CharactersModel;
 import com.cebem.rickandmorty.services.RickAndMortyService;
-import com.cebem.rickandmorty.utils.utils;
+import com.cebem.rickandmorty.utils.Utils;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -22,13 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class rickController {
+public class RickController {
 
     @Autowired
     RickAndMortyService rickAndMortyService;
 
     // http://127.0.0.1/
     // http://localhost/
+    // http://angel.com/
     @GetMapping("/")
     public String saluda() {
         return "Bienvenid@ a mi api rest de rickAndMorty";
@@ -43,7 +44,7 @@ public class rickController {
     // http://localhost:8080/palindrome/ana
     @GetMapping("/palindrome/{word}")
     public String palindrome(@PathVariable String word) {
-        return utils.isPalindrome(word)
+        return Utils.isPalindrome(word)
                 ? "Si es un palíndromo"
                 : "No es un palíndromo";
     }
@@ -67,7 +68,7 @@ public class rickController {
         String info = name + " " + price + "\n";
 
         try {
-            utils.writeOnDisk("datos.txt", info);
+            Utils.writeOnDisk("datos.txt", info);
         } catch (IOException e) {
             return "Error al intentar escribir en el fichero";
         }
@@ -77,7 +78,7 @@ public class rickController {
 
     @DeleteMapping("/removeFromDisk")
     public String removeFromDisk() {
-        boolean resultado = utils.deleteFromDisk("datos.txt");
+        boolean resultado = Utils.deleteFromDisk("datos.txt");
         return resultado ? "Borrado correcto" : "No he podido borrar";
     }
 
@@ -108,7 +109,7 @@ te devuelva ese número elevado al cuadrado
     @DeleteMapping("/clear")
     public String clear() {
         try {
-            utils.clearFile("datos.txt");
+            Utils.clearFile("datos.txt");
             return "Fichero limpiado correctamente";
         } catch (IOException ex) {
             return "Error al limpiar el fichero." + ex.getMessage();
@@ -125,7 +126,7 @@ te devuelva ese número elevado al cuadrado
     @GetMapping("/products")
     public static String getProducts() {
         try {
-            return utils.readFromDisk("datos.txt");
+            return Utils.readFromDisk("datos.txt");
         } catch (FileNotFoundException ex) {
             return "No se encontro el fichero datos.txt";
         } catch (IOException ex) {
@@ -152,7 +153,7 @@ te devuelva ese número elevado al cuadrado
         float f1 = Float.parseFloat(n1);
         float f2 = Float.parseFloat(n2);
         float f3 = Float.parseFloat(n3);
-        return utils.maxOfElements(f1, f2, f3) + "";
+        return Utils.maxOfElements(f1, f2, f3) + "";
     }
 
     /*
@@ -165,7 +166,7 @@ te devuelva ese número elevado al cuadrado
    */
     @GetMapping("/capitalize/{text}")
     public static String capitalize(@PathVariable String text) {
-        return utils.capitalizeText(text);
+        return Utils.capitalizeText(text);
     }
     /*
 
@@ -183,7 +184,7 @@ te devuelva ese número elevado al cuadrado
         ArrayList<String> colores = new ArrayList<String>(Arrays.asList(COLORS));
         String finalColors = "";
         for (int i=0;i<COLOR_COUNT;i++){
-            int random = utils.getRandomValue(colores.size());
+            int random = Utils.getRandomValue(colores.size());
             finalColors += colores.remove( random ) + " ";
         }
         return finalColors;
@@ -224,8 +225,5 @@ te devuelva ese número elevado al cuadrado
         html+="</html>";
         return html;
     }
-
-
-
 
 }

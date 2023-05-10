@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.cebem.rickandmorty.models.CharacterModel;
 import com.cebem.rickandmorty.models.CharactersModel;
-import com.cebem.rickandmorty.utils.utils;
+import com.cebem.rickandmorty.utils.Utils;
 
 @Service
 public class RickAndMortyService {
@@ -17,7 +17,7 @@ public class RickAndMortyService {
 
     public CharacterModel getCharacterRandom(){
         final int TOTAL_CHARACTERS  = 826;
-        int random = utils.getRandomValue(TOTAL_CHARACTERS-1)+1;  // 1..826
+        int random = Utils.getRandomValue(TOTAL_CHARACTERS-1)+1;  // 1..826
         String url = "/character/"+random;
         //RestTemplate restTemplate = new RestTemplate();
         CharacterModel datos = restTemplate.getForObject(BASE_API+url, CharacterModel.class );
