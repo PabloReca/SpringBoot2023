@@ -1,3 +1,9 @@
 {
-  "goal": "clean package"
+  "build": {
+    "type": "maven",
+    "goal": "package"
+  },
+  "deploy": {
+    "goal": "java -jar target/my-app-1.0-SNAPSHOT.jar"
+  }
 }
