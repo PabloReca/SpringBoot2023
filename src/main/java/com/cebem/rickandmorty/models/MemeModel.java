@@ -78,6 +78,4 @@ public class MemeModel {
         this.createdAt = createdAt;
     }
 
-
-
 }
